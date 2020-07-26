@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 
 
 //middleware
 app.use(express.urlencoded({extended:true}));
+app.use(methodOverride('_method'))
 
 //data/array/api
 const fruits = [
@@ -54,6 +56,22 @@ app.get('/fruits/:indexOfFruitsArray', (req, res) => {
   res.send(fruits[req.params.indexOfFruitsArray]);
 });
 
+//EDIT route
+app.get('/fruits/:indexOfFruitsArray/edit', (req, res) => {
+  res.render(
+      'edit.ejs',
+        {
+            fruit: fruits[req.params.indexOfFruitsArray],
+            index: req.params.indexOfFruitsArray
+        }
+  )
+})
+
+//DELETE route
+app.delete('/fruits/:indexOfFruitsArray', (req, res) => {
+    fruits.splice(req.params.indexOfFruitsArray, 1);
+    res.redirect('/fruits'); //redirect to index page
+})
 
 app.listen(3000, () => {
   console.log('listening...🍌🍒🥝🍓🍆');
