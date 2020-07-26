@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const mongoose = require('mongoose');
 
 
 //middleware
 app.use(express.urlencoded({extended:true}));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 //data/array/api
 const fruits = [
@@ -67,10 +68,25 @@ app.get('/fruits/:indexOfFruitsArray/edit', (req, res) => {
   )
 })
 
+//UPDATE route
+app.put('/fruits/:indexOfFruitsArray', (req, res) => {
+  if(req.body.readyToEat === 'on'){
+      req.body.readyToEat = true;
+  } else {
+      req.body.readyToEat = false;
+  }
+  fruits[req.params.indexOfFruitsArray] = req.body;
+  res.redirect('/fruits'); //redirect to index page
+})
+
 //DELETE route
 app.delete('/fruits/:indexOfFruitsArray', (req, res) => {
     fruits.splice(req.params.indexOfFruitsArray, 1);
     res.redirect('/fruits'); //redirect to index page
+})
+
+mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => {
+  console.log('The connection with mongod is established')
 })
 
 app.listen(3000, () => {
