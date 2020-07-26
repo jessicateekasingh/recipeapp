@@ -1,2 +1,2 @@
-# recipelogapp
+# recipe-log-app
 ###recipeapp
