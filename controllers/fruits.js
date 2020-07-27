@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const Fruit = require('../models/fruits.js')
 
 
 //NEW route
-router.get('/fruits/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.render('new.ejs');
 })
 
 //CREATE route
-router.post('/fruits/', (req, res) => {
+router.post('/', (req, res) => {
   // res.send(req.body);
   if(req.body.readyToEat === 'on'){
     req.body.readyToEat = true;
@@ -20,17 +21,8 @@ router.post('/fruits/', (req, res) => {
   });
 });
 
-//SHOW route
-router.get('/fruits/:id', (req, res) => {
-  Fruit.findById(req.params.id, (err, foundFruit) => {
-    res.render('show.ejs', {
-      fruit:foundFruit
-    });
-  });
-});
-
 //INDEX route
-router.get('/fruits', (req, res) => {
+router.get('/', (req, res) => {
   Fruit.find({}, (error, allFruits) => {
       res.render('index.ejs', {
           fruits: allFruits
@@ -38,15 +30,31 @@ router.get('/fruits', (req, res) => {
   })
 })
 
+//SHOW route
+router.get('/:id', (req, res) => {
+  Fruit.findById(req.params.id, (error, foundFruit) => {
+    res.render(
+      'show.ejs',
+      {
+      fruit:foundFruit
+      }
+    );
+  });
+});
+
+
+
 //DELETE route
-router.delete('/fruits/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   Fruit.findByIdAndRemove(req.params.id, (err, data) => {
       res.redirect('/fruits');
   });
 });
 
+
+
 //EDIT route
-router.get('/fruits/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   Fruit.findById(req.params.id, (err, foundFruit) => {
     res.render(
       'edit.ejs',
@@ -58,7 +66,7 @@ router.get('/fruits/:id/edit', (req, res) => {
 })
 
 //PUT route
-router.put('/fruits/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   if(req.body.readyToEat === 'on'){
     req.body.readyToEat = true;
   } else {
@@ -68,6 +76,8 @@ router.put('/fruits/:id', (req, res) => {
     res.redirect('/fruits');
   })
 })
+
+
 
 
 module.exports = router;
