@@ -5,14 +5,14 @@
     <title></title>
   </head>
   <body>
-    <h1>Edit Fruit Page</h1>
-      <form action="/fruits/<%=fruit.id%>?_method=PUT" method="POST">
+    <h1>Edit Alcohol Page</h1>
+      <form action="/alcohol/<%=alcohol.id%>?_method=PUT" method="POST">
 
-          Name: <input type="text" name="name" value="<%=fruit.name%>"/><br/>
-          Color: <input type="text" name="color" value="<%=fruit.color%>"/><br/>
-          IS Ready To Eat?:
-          <input type="checkbox" name="readyToEat"
-              <% if(fruit.readyToEat === true){ %>
+          Name: <input type="text" name="name" value="<%=alcohol.name%>"/><br/>
+          Image: <input type="text" name="image" value="<%=alcohol.image%>"/><br/>
+          IS Alcoholic?:
+          <input type="checkbox" name="isAlcoholic"
+              <% if(alcohol.isAlcoholic === true){ %>
                   checked
               <% } %>
           />
@@ -23,7 +23,7 @@
       <br/>
       <br/>
       <nav>
-        <a href="/fruits">Back To Home Page</a>
+        <a href="/alcohol">Back To Home Page</a>
       </nav>
   </body>
 </html>

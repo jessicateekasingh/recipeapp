@@ -21,8 +21,8 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false}))
 app.use(methodOverride('_method'))
 
-const fruitsController = require('./controllers/fruits.js');
-app.use('/fruits', fruitsController);
+const alcoholController = require('./controllers/alcohol.js');
+app.use('/alcohol', alcoholController);
 
 // routes
 app.get('/', (req, res) => {
