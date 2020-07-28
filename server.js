@@ -20,9 +20,13 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false}))
 app.use(methodOverride('_method'))
+
+const fruitsController = require('./controllers/fruits.js');
+app.use('/fruits', fruitsController);
+
 // routes
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('This is my app')
 })
 app.listen(PORT, () => {
   console.log('listening...🍌🍒🥝🍓🍆', PORT)
