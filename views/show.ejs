@@ -6,9 +6,22 @@
     <link rel="stylesheet" type="text/css" href="/../css/style.css">
   </head>
   <body>
-    <h1>Alcohol show page</h1>
+    <h1><%=alcohol.name; %></h1>
 
-      The <%=alcohol.name; %> is <%=alcohol.isAlcoholic; %>.
+      The <%=alcohol.name; %> is
+
+
+      <%
+           if(alcohol.isAlcoholic){
+       %>
+           alcoholic!
+       <%
+           } else {
+       %>
+               NOT alcoholic!
+       <%
+           }
+       %>
 
       <div className="photo">
       <img src="<%=alcohol.image; %>" alt="<%=alcohol.name; %>">
