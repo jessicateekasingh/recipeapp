@@ -68,9 +68,9 @@ router.get('/:id/edit', (req, res) => {
 //PUT route
 router.put('/:id', (req, res) => {
   if(req.body.isAlcoholic === 'on'){
-    req.body.isAlcoholic = 'alcoholic';
+    req.body.isAlcoholic = true;
   } else {
-    req.body.isAlcoholic = 'NOT alcoholic';
+    req.body.isAlcoholic = false;
   }
   Alcohol.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel) => {
     res.redirect('/alcohol');
