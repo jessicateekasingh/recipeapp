@@ -28,6 +28,10 @@ Models:
 Wireframed concept beforehand, watched wiki videos from previous lectures, created a schedule, made commits everyday, reached out to outside sources ( Aegean ) when necessary.
 
 
+### Issues :
+Had a few outside circumstances that could not be avoided during this project ( ER visit ). Managed to do minimal styling, will come back to that in the near future for practice. 
+
+
 ### Installation instructions:
 * Clone repo onto local desktop  
 * npm install express, ejs, nodemon, mongoose, etc.
