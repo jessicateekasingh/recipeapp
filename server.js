@@ -27,7 +27,7 @@ app.use('/alcohol', alcoholController);
 
 // routes
 app.get('/', (req, res) => {
-  res.send('Welcome to alcohollister!')
+  res.render('index.ejs')
 })
 app.listen(PORT, () => {
   console.log('listening...🍌🍒🥝🍓🍆', PORT)
