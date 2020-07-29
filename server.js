@@ -26,9 +26,9 @@ const alcoholController = require('./controllers/alcohol.js');
 app.use('/alcohol', alcoholController);
 
 // routes
-// app.get('/', (req, res) => {
-//   res.send('Welcome to my app!')
-// })
+app.get('/', (req, res) => {
+  res.send('Welcome to my app!')
+})
 app.listen(PORT, () => {
   console.log('listening...🍌🍒🥝🍓🍆', PORT)
 })
