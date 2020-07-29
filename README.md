@@ -29,7 +29,7 @@ Wireframed concept beforehand, watched wiki videos from previous lectures, creat
 
 
 ### Issues :
-Had a few outside circumstances that could not be avoided during this project ( ER visit ). Managed to do minimal styling, will come back to that in the near future for practice. 
+Had a few outside circumstances that could not be avoided during this project ( ER visit ). Managed to do extremely minimal styling, will come back to that in the near future for practice.
 
 
 ### Installation instructions:

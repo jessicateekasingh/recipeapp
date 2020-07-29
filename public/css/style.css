@@ -1,3 +1,25 @@
+body {
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Rowdies', cursive;
+}
+
 ul {
   list-style-type: none;
+  font-family: 'Rowdies', cursive;
+  font-size: 20px;
 }
+
+/* .photo {
+  width: 20px;
+} */
+
+/* .button {
+  width: 30%;
+  padding: 10px;
+  background-color: pink;
+} */
